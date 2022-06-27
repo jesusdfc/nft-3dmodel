@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
-import './App.css';
-import connectToWallet from "./getWeb3";
-import './Button.css'
-import format_text from "./utils/utils";
-import transferEth from "./utils/transferEth";
-
+import './Appnft.css';
+import './../Button.css'
+import connectToWallet from "../getWeb3";
+import format_text from "../utils/utils";
 import Spinner from 'react-bootstrap/Spinner';
+import mintNFT from "./interact";
 
 function App() {
+
 
   const [web3, setWeb3] = useState(undefined);
   const [isGlobalLoading, setIsGlobalLoading] = useState(true);
@@ -45,7 +45,8 @@ function App() {
         }
       });
 
-      transferEth(web3, 0.01, accounts[0])
+      //transferEth(web3, 0.01, accounts[0])
+      mintNFT(web3,accounts[0]);
 
     } catch (error){
 
@@ -76,7 +77,7 @@ function App() {
       <br></br>
       <button className="button" onClick={initConnection} disabled={isConnectingToWallet}>
       <span className="button__text">
-      <div dangerouslySetInnerHTML = {{ __html: format_text("Buy DeepFi a coffe") }} />
+      <div dangerouslySetInnerHTML = {{ __html: format_text("Mint NFT") }} />
       </span>
        <svg className="button__svg" role="presentational" viewBox="0 0 600 600">
         <defs>
@@ -125,6 +126,7 @@ function App() {
         {isGlobalLoading? <LoadingView/> : <MainViewOrConnectView/> }
     </div>
   );
+
 }
 
 export default App;

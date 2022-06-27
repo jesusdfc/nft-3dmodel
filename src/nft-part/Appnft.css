@@ -1,0 +1,18 @@
+body,h1 {
+    font-family: "Raleway", sans-serif
+  }
+  
+  body, html {
+    height: 100%
+  }
+  
+  .bgimg {
+    background-image: url('../../public/future.jiff');
+    min-height: 100%;
+    background-position: center;
+    background-size: cover;
+  }
+  
+  .center {
+    text-align: center;
+  }
